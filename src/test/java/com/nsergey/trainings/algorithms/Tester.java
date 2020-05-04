@@ -3,6 +3,7 @@ package com.nsergey.trainings.algorithms;
 import com.nsergey.trainings.algorithms.task0.StringLength;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -47,6 +48,7 @@ public class Tester {
         assertEquals(expected, actual);
     }
 
+    @DisplayName("Проверка тестирования")
     @Test
     public void testStringLength() {
         runTest(new StringLength(), "0.String");
