@@ -20,9 +20,9 @@ public class Tester {
     private void runTest(Task task, String dir) {
         log.info("Task: {}", task.getClass().getName());
         try {
-            while (true) {
-                Path inFile = makeFileName("/%s/test.%d.in", dir, number);
-                Path outFile = makeFileName("/%s/test.%d.out", dir, number);
+            for (int i = 0; ; i++) {
+                Path inFile = makeFileName("/%s/test.%d.in", dir, i);
+                Path outFile = makeFileName("/%s/test.%d.out", dir, i);
 
                 if (Files.exists(inFile) && Files.exists(outFile)) {
                     log.info("Test #{}", i);
@@ -30,9 +30,7 @@ public class Tester {
                 } else {
                     break;
                 }
-                number++;
             }
-
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
