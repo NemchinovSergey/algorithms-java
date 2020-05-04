@@ -18,13 +18,14 @@ public class Tester {
     private static final Logger log = LogManager.getLogger(Tester.class);
 
     private void runTest(Task task, String dir) {
-        int number = 0;
+        log.info("Task: {}", task.getClass().getName());
         try {
             while (true) {
                 Path inFile = makeFileName("/%s/test.%d.in", dir, number);
                 Path outFile = makeFileName("/%s/test.%d.out", dir, number);
 
                 if (Files.exists(inFile) && Files.exists(outFile)) {
+                    log.info("Test #{}", i);
                     runTest(task, inFile, outFile);
                 } else {
                     break;
