@@ -5,13 +5,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
-import java.net.URISyntaxException;
-import java.nio.file.Files;
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.List;
 
 import static com.nsergey.trainings.algorithms.TestUtils.*;
+import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class Tester {
 
@@ -19,20 +20,18 @@ public class Tester {
 
     private void runTest(Task task, String dir) {
         log.info("Task: {}", task.getClass().getName());
-        try {
-            for (int i = 0; ; i++) {
-                Path inFile = makeFileName("/%s/test.%d.in", dir, i);
-                Path outFile = makeFileName("/%s/test.%d.out", dir, i);
-
-                if (Files.exists(inFile) && Files.exists(outFile)) {
-                    log.info("Test #{}", i);
-                    runTest(task, inFile, outFile);
-                } else {
-                    break;
-                }
+        for (int i = 0; ; i++) {
+            try {
+                Path input = getFilePath(format("/%s/test.%d.in", dir, i));
+                Path expected = getFilePath(format("/%s/test.%d.out", dir, i));
+                log.info("Test #{}", i);
+                runTest(task, input, expected);
+            } catch (FileNotFoundException e) {
+                log.info("Finished");
+                return;
+            } catch (Exception e) {
+                fail(e);
             }
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
         }
     }
 

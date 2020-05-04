@@ -1,18 +1,22 @@
 package com.nsergey.trainings.algorithms;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static java.lang.String.format;
-
 public class TestUtils {
 
-    public static Path makeFileName(String pattern, String dataDirectory, int number) throws URISyntaxException {
-        return Paths.get(Tester.class.getResource(format(pattern, dataDirectory, number)).toURI());
+    public static Path getFilePath(String fileName) throws URISyntaxException, FileNotFoundException {
+        URL resource = TestUtils.class.getResource(fileName);
+        if (resource == null) {
+            throw new FileNotFoundException(fileName);
+        }
+        return Paths.get(resource.toURI());
     }
 
     public static String readAllText(Path file) {
