@@ -1,6 +1,7 @@
 package com.nsergey.trainings.algorithms;
 
 import com.nsergey.trainings.algorithms.task0.StringLength;
+import com.nsergey.trainings.algorithms.taskTwoSum.TwoSum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.DisplayName;
@@ -52,6 +53,12 @@ public class Tester {
     @Test
     public void testStringLength() {
         runTest(new StringLength(), "0.String");
+    }
+
+    @DisplayName("LeetCode - Two Sum")
+    @Test
+    public void testTwoSum() {
+        runTest(new TwoSum(), "TwoSum");
     }
 
 }
