@@ -1,8 +1,5 @@
-package com.nsergey.trainings.algorithms;
+package com.nsergey.trainings.algorithms.leetcode.twosum;
 
-import com.nsergey.trainings.algorithms.twosum.TwoSumBruteForce;
-import com.nsergey.trainings.algorithms.twosum.TwoSumOnePassHashTable;
-import com.nsergey.trainings.algorithms.twosum.TwoSumTwoPassHashTable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

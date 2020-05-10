@@ -1,4 +1,4 @@
-package com.nsergey.trainings.algorithms.task0;
+package com.nsergey.trainings.algorithms.otus.task0;
 
 import com.nsergey.trainings.algorithms.Task;
 

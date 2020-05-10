@@ -1,6 +1,5 @@
-package com.nsergey.trainings.algorithms;
+package com.nsergey.trainings.algorithms.otus.task0;
 
-import com.nsergey.trainings.algorithms.task0.StringLength;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.nsergey.trainings.algorithms.twosum;
+package com.nsergey.trainings.algorithms.leetcode.twosum;
 
 import com.nsergey.trainings.algorithms.Task;
 
@@ -12,30 +12,33 @@ import static com.nsergey.trainings.algorithms.Utils.parseIntArray;
 /**
  * https://leetcode.com/articles/two-sum/
  */
-public class TwoSumOnePassHashTable implements Task {
+public class TwoSumTwoPassHashTable implements Task {
 
     @Override
     public String run(List<String> data) {
         int[] nums = parseIntArray(data.get(0));
         int target = Integer.parseInt(data.get(1));
 
-        int[] result = twoSumWithOnePassHashTable(nums, target);
+        int[] result = twoSumWithTwoPassHashTable(nums, target);
         return Arrays.toString(result);
     }
 
     /**
-     * Time complexity : O(n). We traverse the list containing nn elements only once. Each look up in the table costs only O(1) time.
-     * Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores at most n elements.
+     * Time complexity: O(n). We traverse the list containing nn elements exactly twice. Since the hash table reduces the look up time to O(1), the time complexity is O(n).
+     * Space complexity: O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly n elements.
      */
-    public int[] twoSumWithOnePassHashTable(int[] nums, int target) {
+    public int[] twoSumWithTwoPassHashTable(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
 
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement) && map.get(complement) != i) {
-                return new int[]{map.get(complement), i};
+                return new int[]{i, map.get(complement)};
             }
-            map.put(nums[i], i);
         }
 
         throw new IllegalArgumentException();

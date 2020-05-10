@@ -1,4 +1,4 @@
-package com.nsergey.trainings.algorithms.twosum;
+package com.nsergey.trainings.algorithms.leetcode.twosum;
 
 import com.nsergey.trainings.algorithms.Task;
 
