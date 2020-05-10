@@ -43,6 +43,10 @@ public class LuckyTicketsBruteForce implements Task {
             if (sum1 == sum2) {
                 countTickets++;
             }
+
+            if (Thread.currentThread().isInterrupted()) {
+                throw new RuntimeException("Interrupted");
+            }
         }
         return countTickets;
     }

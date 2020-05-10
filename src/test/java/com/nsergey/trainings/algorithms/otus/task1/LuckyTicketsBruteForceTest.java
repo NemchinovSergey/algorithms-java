@@ -1,6 +1,7 @@
 package com.nsergey.trainings.algorithms.otus.task1;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import static com.nsergey.trainings.algorithms.TestUtils.runTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,11 +10,7 @@ class LuckyTicketsBruteForceTest {
 
     public final LuckyTicketsBruteForce luckyTickets = new LuckyTicketsBruteForce();
 
-    @Test
-    void testLuckyTicketsBrute() {
-        runTest(new LuckyTicketsBrute(), "1.Tickets");
-    }
-
+    @Timeout(5)
     @Test
     void testLuckyTicketsBruteForce() {
         runTest(new LuckyTicketsBruteForce(), "1.Tickets");
