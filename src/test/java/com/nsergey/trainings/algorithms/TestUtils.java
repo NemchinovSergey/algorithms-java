@@ -39,11 +39,12 @@ public class TestUtils {
 
     public static void runTest(Task task, Path inFile, Path outFile) {
         List<String> input = readAllLines(inFile);
-        String expected = readAllText(outFile);
-        String actual = task.run(input);
-
         log.info("input: {}", input);
+
+        String expected = readAllText(outFile);
         log.info("expected: '{}'", expected);
+
+        String actual = task.run(input);
         log.info("actual: '{}'", actual);
 
         assertEquals(expected, actual);
