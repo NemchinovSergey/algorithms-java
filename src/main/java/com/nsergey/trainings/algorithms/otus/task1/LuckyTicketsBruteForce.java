@@ -2,7 +2,6 @@ package com.nsergey.trainings.algorithms.otus.task1;
 
 import com.nsergey.trainings.algorithms.Task;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,30 +29,22 @@ public class LuckyTicketsBruteForce implements Task {
             throw new IllegalArgumentException("n cannot be less or equal zero");
         }
 
-        int firstNumber = getFirstNumber(n);
         int lastNumber = getLastNumber(n);
+        String format = "%0" + n * 2 + "d";
 
-        int countTickets = 1; // because of double zeros, ex. n=1, 00
-        for (int number = firstNumber; number <= lastNumber; number++) {
-            String str = String.valueOf(number);
+        int countTickets = 0;
+        for (int number = 0; number <= lastNumber; number++) {
+            String str = String.format(format, number);
             byte[] bytes = str.getBytes();
-
-            System.out.println(number + ": " + Arrays.toString(bytes));
 
             int sum1 = sumOfFirstHalf(bytes, n);
             int sum2 = sumOfSecondHalf(bytes, n);
 
             if (sum1 == sum2) {
-                System.out.println("Lucky!");
                 countTickets++;
             }
         }
         return countTickets;
-    }
-
-    int getFirstNumber(int n) {
-        int digits = n * 2;
-        return (int) (1 * Math.pow(10, digits - 1));
     }
 
     int getLastNumber(int n) {

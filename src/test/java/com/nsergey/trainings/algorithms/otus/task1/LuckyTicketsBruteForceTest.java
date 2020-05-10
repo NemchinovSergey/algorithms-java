@@ -20,13 +20,6 @@ class LuckyTicketsBruteForceTest {
     }
 
     @Test
-    void getFirstNumber() {
-        assertEquals(10, luckyTickets.getFirstNumber(1));
-        assertEquals(1000, luckyTickets.getFirstNumber(2));
-        assertEquals(100000, luckyTickets.getFirstNumber(3));
-    }
-
-    @Test
     void getLastNumber() {
         assertEquals(99, luckyTickets.getLastNumber(1));
         assertEquals(9999, luckyTickets.getLastNumber(2));
