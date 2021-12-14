@@ -10,7 +10,7 @@
 
     <properties>
         <junit-jupiter.version>5.5.1</junit-jupiter.version>
-        <log4j-api.version>2.13.2</log4j-api.version>
+        <log4j-api.version>2.16.0</log4j-api.version>
     </properties>
 
     <dependencies>
